@@ -18,7 +18,7 @@ const servicesData = [
         type: 'hotel',
         typeName: 'Khách sạn',
         price: 200000,
-        location: 'Quận 3, TP.HCM',
+        location: 'TP. Nha Trang',
         description: 'Dịch vụ lưu trú cho thú cưng với không gian rộng rãi, sạch sẽ và được chăm sóc 24/7',
         image: 'https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=400',
         rating: 4.9,

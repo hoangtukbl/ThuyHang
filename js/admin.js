@@ -143,7 +143,7 @@ function saveService() {
         type: document.getElementById('serviceType').value,
         typeName: typeNames[document.getElementById('serviceType').value],
         price: parseInt(document.getElementById('servicePrice').value),
-        location: document.getElementById('serviceLocation').value || 'TP.HCM',
+        location: document.getElementById('serviceLocation').value || 'TP. Nha Trang',
         description: document.getElementById('serviceDescription').value,
         image: document.getElementById('serviceImage').value || 'https://via.placeholder.com/400x200?text=Pet+Service',
         rating: 5.0,
