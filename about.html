@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu - PetHub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-paw"></i>
+                    <span>PetHub</span>
+                </div>
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="services.html">Dịch vụ</a></li>
+                        <li><a href="booking.html">Đặt lịch</a></li>
+                        <li><a href="about.html" class="active">Giới thiệu</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <button class="btn-login" id="loginBtn">
+                        <i class="fas fa-user"></i> Đăng nhập
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Về PetHub</h1>
+            <p>Kết nối yêu thương - Chăm sóc trọn vẹn</p>
+        </div>
+    </section>
+
+    <section class="about-content">
+        <div class="container">
+            <div class="about-intro">
+                <h2>Chúng tôi là ai?</h2>
+                <p>PetHub là nền tảng kết nối hàng đầu giữa chủ thú cưng và các nhà cung cấp dịch vụ chăm sóc thú cưng chuyên nghiệp. Với sứ mệnh mang đến những trải nghiệm tốt nhất cho người bạn bốn chân của bạn, chúng tôi tập hợp các dịch vụ chất lượng cao từ spa, khách sạn, thú y đến huấn luyện.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-store"></i>
+                    <h3>100+</h3>
+                    <p>Đối tác dịch vụ</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <h3>5000+</h3>
+                    <p>Khách hàng hài lòng</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>10000+</h3>
+                    <p>Lượt đặt lịch</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-star"></i>
+                    <h3>4.8/5</h3>
+                    <p>Đánh giá trung bình</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-paw"></i> PetHub</h3>
+                    <p>Kết nối yêu thương, chăm sóc trọn vẹn cho thú cưng của bạn</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liên kết</h4>
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="services.html">Dịch vụ</a></li>
+                        <li><a href="booking.html">Đặt lịch</a></li>
+                        <li><a href="about.html">Giới thiệu</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Liên hệ</h4>
+                    <p><i class="fas fa-phone"></i> 0123 456 789</p>
+                    <p><i class="fas fa-envelope"></i> info@pethub.vn</p>
+                    <p><i class="fas fa-map-marker-alt"></i> TP. Hồ Chí Minh</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 PetHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Đăng nhập</h2>
+            <div class="login-form">
+                <button class="btn-google-login" id="googleLoginBtn">
+                    <i class="fab fa-google"></i>
+                    Đăng nhập với Google
+                </button>
+                <div class="divider"><span>hoặc</span></div>
+                <form id="emailLoginForm">
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Mật khẩu" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary full-width">Đăng nhập</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

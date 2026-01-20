@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - PetHub</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-logo">
+                <i class="fas fa-paw"></i>
+                <span>PetHub Admin</span>
+            </div>
+            <nav class="admin-nav">
+                <a href="#dashboard" class="nav-item active" data-section="dashboard">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#services" class="nav-item" data-section="services">
+                    <i class="fas fa-list"></i>
+                    <span>Quản lý dịch vụ</span>
+                </a>
+                <a href="#bookings" class="nav-item" data-section="bookings">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Lịch đặt</span>
+                </a>
+                <a href="#users" class="nav-item" data-section="users">
+                    <i class="fas fa-users"></i>
+                    <span>Khách hàng</span>
+                </a>
+                <a href="#settings" class="nav-item" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Cài đặt</span>
+                </a>
+            </nav>
+            <div class="admin-user">
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Admin User</span>
+                </div>
+                <a href="../index.html" class="btn-logout">
+                    <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1 id="pageTitle">Dashboard</h1>
+                <div class="admin-actions">
+                    <button class="btn btn-icon">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="admin-section active">
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon blue">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Lịch đặt hôm nay</h3>
+                            <p class="stat-number">24</p>
+                            <span class="stat-change positive">+12% so với hôm qua</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Doanh thu tháng này</h3>
+                            <p class="stat-number">45,680,000đ</p>
+                            <span class="stat-change positive">+8% so với tháng trước</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Khách hàng mới</h3>
+                            <p class="stat-number">156</p>
+                            <span class="stat-change positive">+15% so với tháng trước</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon purple">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Đánh giá trung bình</h3>
+                            <p class="stat-number">4.8/5</p>
+                            <span class="stat-change positive">+0.2 điểm</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-grid">
+                    <div class="admin-card">
+                        <h3>Lịch đặt gần đây</h3>
+                        <div class="table-responsive">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Mã</th>
+                                        <th>Khách hàng</th>
+                                        <th>Dịch vụ</th>
+                                        <th>Thời gian</th>
+                                        <th>Trạng thái</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recentBookings">
+                                    <tr>
+                                        <td>#001</td>
+                                        <td>Nguyễn Văn A</td>
+                                        <td>Spa & Grooming</td>
+                                        <td>25/01 10:00</td>
+                                        <td><span class="badge-success">Đã xác nhận</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#002</td>
+                                        <td>Trần Thị B</td>
+                                        <td>Khách sạn thú cưng</td>
+                                        <td>25/01 14:00</td>
+                                        <td><span class="badge-warning">Chờ xác nhận</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Section -->
+            <section id="services" class="admin-section">
+                <div class="section-header">
+                    <h2>Quản lý dịch vụ</h2>
+                    <button class="btn btn-primary" id="addServiceBtn">
+                        <i class="fas fa-plus"></i> Thêm dịch vụ mới
+                    </button>
+                </div>
+                <div class="admin-card">
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Hình ảnh</th>
+                                    <th>Tên dịch vụ</th>
+                                    <th>Loại</th>
+                                    <th>Giá</th>
+                                    <th>Đánh giá</th>
+                                    <th>Trạng thái</th>
+                                    <th>Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody id="servicesTable">
+                                <!-- Services will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bookings Section -->
+            <section id="bookings" class="admin-section">
+                <div class="section-header">
+                    <h2>Quản lý lịch đặt</h2>
+                    <div class="filters">
+                        <select id="bookingStatusFilter">
+                            <option value="all">Tất cả</option>
+                            <option value="pending">Chờ xác nhận</option>
+                            <option value="confirmed">Đã xác nhận</option>
+                            <option value="completed">Hoàn thành</option>
+                            <option value="cancelled">Đã hủy</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="admin-card">
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Mã đơn</th>
+                                    <th>Khách hàng</th>
+                                    <th>SĐT</th>
+                                    <th>Dịch vụ</th>
+                                    <th>Thời gian</th>
+                                    <th>Thú cưng</th>
+                                    <th>Tổng tiền</th>
+                                    <th>Trạng thái</th>
+                                    <th>Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bookingsTable">
+                                <!-- Bookings will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Users Section -->
+            <section id="users" class="admin-section">
+                <div class="section-header">
+                    <h2>Quản lý khách hàng</h2>
+                </div>
+                <div class="admin-card">
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Tên khách hàng</th>
+                                    <th>Email</th>
+                                    <th>SĐT</th>
+                                    <th>Số lần đặt</th>
+                                    <th>Tổng chi tiêu</th>
+                                    <th>Ngày đăng ký</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTable">
+                                <tr>
+                                    <td>Nguyễn Văn A</td>
+                                    <td>nguyenvana@email.com</td>
+                                    <td>0123456789</td>
+                                    <td>5</td>
+                                    <td>2,500,000đ</td>
+                                    <td>15/12/2025</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings" class="admin-section">
+                <div class="section-header">
+                    <h2>Cài đặt hệ thống</h2>
+                </div>
+                <div class="admin-card">
+                    <form id="settingsForm">
+                        <h3>Thông tin website</h3>
+                        <div class="form-group">
+                            <label>Tên website</label>
+                            <input type="text" value="PetHub">
+                        </div>
+                        <div class="form-group">
+                            <label>Email liên hệ</label>
+                            <input type="email" value="info@pethub.vn">
+                        </div>
+                        <div class="form-group">
+                            <label>Số điện thoại</label>
+                            <input type="tel" value="0123 456 789">
+                        </div>
+                        <div class="form-group">
+                            <label>Địa chỉ</label>
+                            <textarea rows="3">123 Đường ABC, Quận 1, TP. Hồ Chí Minh</textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Add/Edit Service Modal -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close">&times;</span>
+            <h2 id="serviceModalTitle">Thêm dịch vụ mới</h2>
+            <form id="serviceForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Tên dịch vụ *</label>
+                        <input type="text" id="serviceName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Loại dịch vụ *</label>
+                        <select id="serviceType" required>
+                            <option value="grooming">Spa & Grooming</option>
+                            <option value="hotel">Khách sạn thú cưng</option>
+                            <option value="veterinary">Thú y</option>
+                            <option value="training">Huấn luyện</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Giá (VNĐ) *</label>
+                        <input type="number" id="servicePrice" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Địa chỉ</label>
+                        <input type="text" id="serviceLocation">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Mô tả</label>
+                    <textarea id="serviceDescription" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>URL hình ảnh</label>
+                    <input type="text" id="serviceImage" placeholder="https://...">
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelServiceBtn">Hủy</button>
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/admin.js"></script>
+</body>
+</html>

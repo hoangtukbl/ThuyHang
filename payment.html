@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán - PetHub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-paw"></i>
+                    <span>PetHub</span>
+                </div>
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="services.html">Dịch vụ</a></li>
+                        <li><a href="booking.html">Đặt lịch</a></li>
+                        <li><a href="about.html">Giới thiệu</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <button class="btn-login" id="loginBtn">
+                        <i class="fas fa-user"></i> Đăng nhập
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Thanh toán</h1>
+            <p>Hoàn tất thanh toán để xác nhận đặt lịch</p>
+        </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section class="payment-section">
+        <div class="container">
+            <div class="payment-wrapper">
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h2>Thông tin đơn hàng</h2>
+                    <div class="order-details" id="orderDetails">
+                        <div class="order-item">
+                            <span>Mã hóa đơn:</span>
+                            <span id="orderBillId" style="font-weight: bold; color: #ff6b6b;">-</span>
+                        </div>
+                        <div class="order-item">
+                            <span>Dịch vụ:</span>
+                            <span id="orderService">Spa & Grooming cao cấp</span>
+                        </div>
+                        <div class="order-item">
+                            <span>Ngày:</span>
+                            <span id="orderDate">25/01/2026</span>
+                        </div>
+                        <div class="order-item">
+                            <span>Giờ:</span>
+                            <span id="orderTime">10:00</span>
+                        </div>
+                        <div class="order-item">
+                            <span>Thú cưng:</span>
+                            <span id="orderPet">Milo (Chó)</span>
+                        </div>
+                        <hr>
+                        <div class="order-item">
+                            <span>Giá dịch vụ:</span>
+                            <span id="orderBasePrice">350,000đ</span>
+                        </div>
+                        <div class="order-item discount">
+                            <span>Giảm giá:</span>
+                            <span id="orderDiscount">- 0đ</span>
+                        </div>
+                        <div class="order-item total">
+                            <span>Tổng cộng:</span>
+                            <span id="orderTotal">350,000đ</span>
+                        </div>
+                    </div>
+
+                    <!-- Discount Code -->
+                    <div class="discount-code">
+                        <input type="text" id="discountInput" placeholder="Nhập mã giảm giá">
+                        <button class="btn btn-secondary" id="applyDiscountBtn">Áp dụng</button>
+                    </div>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="payment-method">
+                    <h2>Phương thức thanh toán</h2>
+                    <form id="paymentForm">
+                        <div class="payment-options">
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="momo" checked>
+                                <div class="option-content">
+                                    <i class="fas fa-wallet"></i>
+                                    <span>Ví MoMo</span>
+                                </div>
+                            </label>
+
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="banking">
+                                <div class="option-content">
+                                    <i class="fas fa-university"></i>
+                                    <span>Chuyển khoản ngân hàng</span>
+                                </div>
+                            </label>
+
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="card">
+                                <div class="option-content">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Thẻ tín dụng/Ghi nợ</span>
+                                </div>
+                            </label>
+
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="cod">
+                                <div class="option-content">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <span>Thanh toán khi đến</span>
+                                </div>
+                            </label>
+                        </div>
+
+                        <!-- Payment Details -->
+                        <div class="payment-details" id="paymentDetails">
+                            <!-- MoMo -->
+                            <div class="payment-detail active" data-method="momo">
+                                <p>Quét mã QR để thanh toán qua ví MoMo</p>
+                                <div class="qr-code">
+                                    <i class="fas fa-qrcode"></i>
+                                    <p>Mã QR thanh toán</p>
+                                </div>
+                            </div>
+
+                            <!-- Banking -->
+                            <div class="payment-detail" data-method="banking">
+                                <p><strong>Thông tin chuyển khoản:</strong></p>
+                                <p>Ngân hàng: <strong>MBank</strong></p>
+                                <p>Số tài khoản: <strong>084*****478</strong></p>
+                                <p>Chủ tài khoản: <strong>Hoàng Thị Thúy Hằng</strong></p>
+                                <p>Nội dung: <strong>PETHUB [Số điện thoại đặt]</strong></p>
+                            </div>
+
+                            <!-- Card -->
+                            <div class="payment-detail" data-method="card">
+                                <div class="form-group">
+                                    <label>Số thẻ</label>
+                                    <input type="text" placeholder="1234 5678 9012 3456" maxlength="19">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Ngày hết hạn</label>
+                                        <input type="text" placeholder="MM/YY" maxlength="5">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>CVV</label>
+                                        <input type="text" placeholder="123" maxlength="3">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên chủ thẻ</label>
+                                    <input type="text" placeholder="NGUYEN VAN A">
+                                </div>
+                            </div>
+
+                            <!-- COD -->
+                            <div class="payment-detail" data-method="cod">
+                                <p>Bạn sẽ thanh toán trực tiếp khi đến sử dụng dịch vụ.</p>
+                                <p><strong>Lưu ý:</strong> Vui lòng mang theo tiền mặt hoặc thẻ để thanh toán.</p>
+                            </div>
+                        </div>
+
+                        <div class="payment-note">
+                            <p><i class="fas fa-shield-alt"></i> Thông tin thanh toán của bạn được bảo mật tuyệt đối</p>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary full-width">
+                            <i class="fas fa-check-circle"></i> Xác nhận thanh toán
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-paw"></i> PetHub</h3>
+                    <p>Kết nối yêu thương, chăm sóc trọn vẹn cho thú cưng của bạn</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liên kết</h4>
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="services.html">Dịch vụ</a></li>
+                        <li><a href="booking.html">Đặt lịch</a></li>
+                        <li><a href="about.html">Giới thiệu</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Liên hệ</h4>
+                    <p><i class="fas fa-phone"></i> 0123 456 789</p>
+                    <p><i class="fas fa-envelope"></i> info@pethub.vn</p>
+                    <p><i class="fas fa-map-marker-alt"></i> TP. Hồ Chí Minh</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 PetHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div id="paymentSuccessModal" class="modal">
+        <div class="modal-content success-modal">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Thanh toán thành công!</h2>
+            <p>Cảm ơn bạn đã sử dụng dịch vụ của PetHub.</p>
+            <p>Chúng tôi sẽ gửi thông tin chi tiết qua email/SMS.</p>
+            <button class="btn btn-primary" onclick="window.location.href='index.html'">Về trang chủ</button>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/payment.js"></script>
+</body>
+</html>
